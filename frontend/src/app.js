@@ -2,6 +2,7 @@ import { h } from "preact";
 
 import { useState, useEffect } from "preact/hooks";
 import icon from "./copy.svg";
+import trash from "./trash.svg";
 
 function getLocalAddress() {
     if (typeof window !== "undefined") {
@@ -104,7 +105,7 @@ export default function App() {
                 </div>
                 <div className="relative flex w-full p-4 mx-auto mb-4 bg-gray-100 border border-gray-200 rounded-full sm:w-3/4">
                     <input
-                        className="flex-grow mr-8 bg-transparent"
+                        className="flex-grow mr-16 bg-transparent"
                         value={address || "Loading..."}
                         onClick={(event) => event.target.select()}
                         title="Your mail address"
@@ -112,9 +113,18 @@ export default function App() {
                     />
                     <img
                         src={icon}
-                        className="absolute cursor-pointer right-4"
+                        className="absolute cursor-pointer right-12"
                         title="Copy to clipboard"
                         onClick={() => navigator.clipboard.writeText(address)}
+                    />
+                    <img
+                        src={trash}
+                        className="absolute cursor-pointer right-4"
+                        title="Delete mailbox"
+                        onClick={() => {
+                            setLocalAddress(null);
+                            setAddress(null);
+                        }}
                     />
                 </div>
                 <div className="flex flex-col h-full overflow-y-auto border border-gray-200 max-h-120 sm:h-96 shadow-sm rounded-3xl">
