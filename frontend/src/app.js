@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { h, createRef } from "preact";
 
 import { useState, useEffect } from "preact/hooks";
 import icon from "./copy.svg";
@@ -97,6 +97,8 @@ export default function App() {
         return fetchAddress();
     }, [address]);
 
+    let addressInputRef = createRef();
+
     return (
         <div className="flex justify-center h-full sm:items-center">
             <div className="flex flex-col px-4 my-4 sm:mt-0 w-136">
@@ -110,12 +112,16 @@ export default function App() {
                         onClick={(event) => event.target.select()}
                         title="Your mail address"
                         readonly
+                        ref={addressInputRef}
                     />
                     <img
                         src={icon}
                         className="absolute cursor-pointer right-12"
                         title="Copy to clipboard"
-                        onClick={() => navigator.clipboard.writeText(address)}
+                        onClick={() => {
+                            navigator.clipboard.writeText(address);
+                            addressInputRef.current.select();
+                        }}
                     />
                     <img
                         src={trash}
