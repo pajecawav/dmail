@@ -1,0 +1,22 @@
+{
+    "name": "Disposable Mail",
+    "short_name": "dmail",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#fff",
+    "theme_color": "#000",
+    "icons": [
+        {
+            "src": "/assets/logo192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/assets/logo512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+
+}
