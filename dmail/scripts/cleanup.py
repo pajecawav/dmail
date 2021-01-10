@@ -11,7 +11,7 @@ def main() -> None:
     now = datetime.utcnow()
     earliest = now - timedelta(seconds=settings.MAILBOX_EXPIRE_SECONDS)
 
-    rows_deleted = db.query(Mailbox).filter(Mailbox.last_accessed < earliest).delete()
+    rows_deleted = db.query(Mailbox).filter(Mailbox.time_created < earliest).delete()
     db.commit()
     print(f"Deleted {rows_deleted} mailboxes")
 
