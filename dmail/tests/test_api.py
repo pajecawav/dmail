@@ -2,8 +2,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
 from dmail.config import settings
-from dmail.tests.utils import (random_mailbox, random_message,
-                               random_message_dict)
+from dmail.tests.utils import random_mailbox, random_message, random_message_dict
 
 
 def test_create_mailbox(client: TestClient) -> None:

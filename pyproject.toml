@@ -20,7 +20,7 @@ sqlalchemy-stubs = "^0.3"
 pytest = "^6.2.1"
 pytest-cov = "^2.10.1"
 
-[too.isort]
+[tool.isort]
 profile = "black"
 
 [build-system]
