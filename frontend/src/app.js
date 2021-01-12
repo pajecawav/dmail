@@ -1,5 +1,4 @@
 import { h, createRef } from "preact";
-
 import { useState, useEffect } from "preact/hooks";
 import icon from "./copy.svg";
 import trash from "./trash.svg";
@@ -31,7 +30,7 @@ async function fetchMessages(address) {
 async function fetchRandomMailbox() {
     const response = await fetch("/api/mailboxes", { method: "POST" });
     const address = await response.text();
-    return address.replace(/"/g, "");
+    return address;
 }
 
 function Message(props) {

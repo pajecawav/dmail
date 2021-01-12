@@ -1,4 +1,4 @@
-from fastapi import APIRouter, BackgroundTasks, Depends, status
+from fastapi import APIRouter, BackgroundTasks, Depends, Response, status
 from fastapi.exceptions import HTTPException
 from sqlalchemy.orm import Session
 
@@ -19,7 +19,7 @@ def process_message(mailbox: models.Mailbox, message: models.Message) -> None:
 @router.post("/mailboxes")
 def new_mailbox(db: Session = Depends(get_db)):
     mailbox = models.Mailbox.generate(db)
-    return mailbox.full_address
+    return Response(mailbox.full_address)
 
 
 @router.post(settings.MAIL_ROUTE, include_in_schema=False)
