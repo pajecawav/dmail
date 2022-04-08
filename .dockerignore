@@ -1,4 +1,6 @@
 *.db
+.git
+Dockerfile
 
 # dependencies
 /node_modules
