@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import("tailwindcss/tailwind-config").TailwindConfig} */
 module.exports = {
@@ -20,6 +21,10 @@ module.exports = {
 						transform: "rotate(360deg)",
 					},
 				},
+			},
+			screens: {
+				xs: "475px",
+				...defaultTheme.screens,
 			},
 		},
 	},

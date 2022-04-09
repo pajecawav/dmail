@@ -11,12 +11,12 @@ export default function HomePage() {
 	const { mailbox, refresh, isRefreshing, reset } = useMailbox();
 
 	return (
-		<main className="bg-slate-50 max-w-3xl h-full flex flex-col items-stretch gap-4 py-2 mx-4 text-slate-600 font-light md:mx-auto">
+		<main className="bg-slate-50 max-w-3xl h-full flex flex-col items-stretch gap-4 py-2 mx-2 text-slate-600 font-light md:mx-auto">
 			<h1 className="text-center text-3xl">Disposable Mail Address</h1>
 
-			<div className="max-w-lg w-full h-12 self-center flex gap-2 items-stretch">
+			<div className="max-w-lg w-full self-center flex gap-2 items-stretch justify-center flex-wrap">
 				<input
-					className="border rounded-full p-3 flex-grow flex-shrink outline-none selection:bg-brand-100"
+					className="border rounded-full p-3 flex-grow flex-shrink outline-none selection:bg-brand-100 w-full xs:w-auto"
 					type="text"
 					value={mailbox?.email ?? "Loading..."}
 					title="Your temporary email address"
