@@ -3,27 +3,7 @@ import { MailboxResponse } from "@/pages/api/mailbox";
 import { useInterval } from "./useIntervalFn";
 
 const TOKEN_KEY = "dmail.token";
-const REFRESH_INTERVAL_SECONDS = 4;
-
-// function generateRandomMessages(
-// 	email: string,
-// 	n: number = 5
-// ): MailboxResponse["messages"] {
-// 	const messages: MailboxResponse["messages"] = Array.from(
-// 		{ length: n },
-// 		(_, i) => ({
-// 			id: i.toString(),
-// 			title: `This is message number ${i + 1}`,
-// 			body: (`This is message number ${i + 1}. `.repeat(5) + "\n")
-// 				.repeat(2)
-// 				.trim(),
-// 			dateSent: new Date().toString(),
-// 			mailboxEmail: email,
-// 			senderEmail: "admin@example.com",
-// 		})
-// 	);
-// 	return messages;
-// }
+const REFRESH_INTERVAL_SECONDS = 10;
 
 async function fetchMailbox(token?: string | null): Promise<MailboxResponse> {
 	const headers = new Headers();
