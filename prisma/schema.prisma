@@ -8,9 +8,10 @@ datasource db {
 }
 
 model Mailbox {
-  email    String    @id @unique
-  token    String    @unique @default(uuid())
-  messages Message[]
+  email       String    @id @unique
+  token       String    @unique @default(uuid())
+  messages    Message[]
+  dateCreated DateTime  @default(now())
 
   @@map("mailbox")
 }

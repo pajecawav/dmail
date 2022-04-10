@@ -5,7 +5,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"prestart": "prisma db push --skip-generate",
+		"prestart": "prisma migrate deploy",
 		"generate": "yarn prisma generate",
 		"lint": "next lint",
 		"tsc": "tsc --noEmit",
