@@ -1,6 +1,8 @@
 # build image
 FROM node:16-alpine AS build
 
+ENV DATABASE_URL "file:/app/db/db.db"
+
 WORKDIR /build
 
 COPY package.json yarn.lock /build/
