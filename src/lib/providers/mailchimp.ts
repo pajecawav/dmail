@@ -24,8 +24,10 @@ interface MailchimpWebhookData {
 }
 
 export class MailchimpProvider implements Provider {
-	webhookKey: string;
-	baseUrl: string;
+	useBodyParser: boolean = true;
+
+	private webhookKey: string;
+	private baseUrl: string;
 
 	constructor() {
 		this.webhookKey = process.env.MAILCHIMP_WEBHOOK_KEY as string;

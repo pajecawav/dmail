@@ -1,7 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { db } from "../../../prisma/client";
+import { db } from "../../../../prisma/client";
 import { provider } from "@/lib/providers";
-import { methodNotAllowed, ok } from "@/lib/response";
+import { badRequest, methodNotAllowed, ok } from "@/lib/response";
+
+export const config = {
+	api: {
+		bodyParser: provider.useBodyParser,
+	},
+};
 
 export default async function handler(
 	req: NextApiRequest,
@@ -11,7 +17,13 @@ export default async function handler(
 		return methodNotAllowed(res);
 	}
 
-	const messages = await provider.parseRequest(req);
+	let messages;
+	try {
+		messages = await provider.parseRequest(req);
+	} catch (e) {
+		return badRequest(res);
+	}
+
 	console.log(messages);
 	try {
 		for (const message of messages) {

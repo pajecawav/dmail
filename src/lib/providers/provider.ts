@@ -10,6 +10,8 @@ export interface IncomingMessage {
 }
 
 export interface Provider {
+	useBodyParser: boolean;
+
 	parseRequest(
 		req: NextApiRequest
 	): IncomingMessage[] | Promise<IncomingMessage[]>;

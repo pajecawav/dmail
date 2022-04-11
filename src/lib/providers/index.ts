@@ -1,17 +1,19 @@
 import { Provider } from "./provider";
 import { MailchimpProvider } from "./mailchimp";
+import { SendgridProvider } from "./sendgrid";
 
-export const providers: Record<string, Provider> = {
-	mailchimp: new MailchimpProvider(),
-};
+export const PROVIDERS: Record<string, { new (): Provider }> = {
+	mailchimp: MailchimpProvider,
+	sendgrid: SendgridProvider,
+} as const;
 
 const selectedProvider = process.env.PROVIDER?.toLowerCase();
-if (!selectedProvider || !(selectedProvider in providers)) {
+if (!selectedProvider || !(selectedProvider in PROVIDERS)) {
 	throw new Error(
 		`Unknown provider '${selectedProvider}'. Supported providers: ${Object.keys(
-			providers
+			PROVIDERS
 		).join(", ")}.`
 	);
 }
 
-export const provider = providers[selectedProvider];
+export const provider = new PROVIDERS[selectedProvider]();
