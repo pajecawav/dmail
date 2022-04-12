@@ -1,72 +1,34 @@
-# dmail
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-`dmail` is a disposable mail server. It uses [Sendgrid](https://sendgrid.com/) API to receive and parse emails. Live demo available at https://mail.elif.pw or as a telegram bot [@dispmailbot](https://t.me/dispmailbot).
+## Getting Started
 
-It uses [FastAPI](https://github.com/tiangolo/fastapi) for backend and [preact](https://github.com/preactjs/preact) for frontend. Also installable as a [PWA](https://web.dev/progressive-web-apps/).
+First, run the development server:
 
-# Installation
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-1.  Install [poetry](https://python-poetry.org/docs/#installation) and [npm](https://www.npmjs.com/get-npm)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-1.  Clone project
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-    ```bash
-    git clone https://github.com/pajecawav/dmail/
-    ```
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-1.  `cd` into backend folder
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-    ```bash
-    cd dmail/backend
-    ```
+## Learn More
 
-1.  Install server dependencies (you can specify that you do not want the development dependencies installed with `--no-dev` option)
+To learn more about Next.js, take a look at the following resources:
 
-    ```bash
-    poetry install
-    ```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-1.  Create `.env` file or use environment variables (see `.env.example` file for reference)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-1.  Spawn shell within the virtual environment
+## Deploy on Vercel
 
-    ```bash
-    poetry shell
-    ```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-1.  Initialize database
-
-    ```bash
-    python -m dmail.scripts.init_db
-    ```
-
-1.  `cd` into frontend folder
-
-    ```bash
-    cd ../frontend
-    ```
-
-1.  Install frontend dependencies
-
-    ```bash
-    npm install
-    ```
-
-# Usage
-
-1.  From `backend` folder spawn shell within the virtual environment and start [uvicorn](https://github.com/encode/uvicorn) server
-
-    ```bash
-    poetry shell
-    uvicorn dmail.main:app
-    ```
-
-1.  From `frontend` folder start development server with `npm run dev`.
-
-1.  Navigate to `http://localhost:8080`.
-
-For deployment options consider using [nginx](https://nginx.org/ru/) to serve static assets (generated with `NODE_ENV=production npm run build`) and pass api requests to the backend.
-
-# TODO
-
--   private addresses?
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
