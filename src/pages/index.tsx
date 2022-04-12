@@ -62,7 +62,7 @@ export default function HomePage() {
 			<div
 				className={cn(
 					"flex rounded-3xl overflow-hidden border bg-white",
-					mailbox?.messages.length === 0 && "min-h-[20rem]"
+					!mailbox?.messages.length && "min-h-[20rem]"
 				)}
 			>
 				{!mailbox || mailbox.messages.length === 0 ? (
