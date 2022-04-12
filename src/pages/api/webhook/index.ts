@@ -13,9 +13,13 @@ export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	if (req.method === "GET") {
+	// mailchimp sends a HEAD request to check if URL is reachable so we respond
+	// with 200
+	if (req.method === "HEAD") {
 		return ok(res);
-	} else if (req.method !== "POST") {
+	}
+
+	if (req.method !== "POST") {
 		return methodNotAllowed(res);
 	}
 
@@ -23,6 +27,7 @@ export default async function handler(
 	try {
 		messages = await provider.parseRequest(req);
 	} catch (e) {
+		console.error(e);
 		return badRequest(res);
 	}
 
