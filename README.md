@@ -6,6 +6,7 @@
 
 -   [ Sendgrid ](https://sendgrid.com/)
 -   [ Mailchimp ](https://mailchimp.com/)
+-   [Sendinblue](https://sendinblue.com) ([docs](https://developers.sendinblue.com/docs/inbound-parsing-api-1))
 
 # Install
 

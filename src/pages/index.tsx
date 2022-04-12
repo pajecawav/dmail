@@ -59,7 +59,12 @@ export default function HomePage() {
 				</button>
 			</div>
 
-			<div className="flex rounded-3xl overflow-hidden border min-h-[20rem] bg-white">
+			<div
+				className={cn(
+					"flex rounded-3xl overflow-hidden border bg-white",
+					mailbox?.messages.length === 0 && "min-h-[20rem]"
+				)}
+			>
 				{!mailbox || mailbox.messages.length === 0 ? (
 					<div className="m-auto text-xl">Your inbox is empty.</div>
 				) : (
