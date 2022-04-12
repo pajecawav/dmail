@@ -18,6 +18,7 @@ RUN yarn install --frozen-lockfile
 
 COPY . /build
 RUN yarn prisma generate
+RUN yarn next telemetry disable
 RUN yarn build
 
 
