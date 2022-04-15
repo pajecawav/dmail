@@ -66,7 +66,9 @@ export default function HomePage() {
 				)}
 			>
 				{!mailbox || mailbox.messages.length === 0 ? (
-					<div className="m-auto text-xl">Your inbox is empty.</div>
+					<div className="m-auto text-xl text-center">
+						Your inbox is empty.
+					</div>
 				) : (
 					<div className="w-full">
 						{mailbox.messages.map(message => (

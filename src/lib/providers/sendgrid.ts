@@ -1,5 +1,6 @@
 import formidable from "formidable";
 import { NextApiRequest } from "next";
+import { parseEmailString } from "../parse";
 import { IncomingMessage, Provider } from "./provider";
 
 // https://docs.sendgrid.com/for-developers/parsing-email/setting-up-the-inbound-parse-webhook#example-default-payload
@@ -51,11 +52,13 @@ export class SendgridProvider implements Provider {
 						? JSON.parse(data.envelope)
 						: data.envelope;
 
+				const from = parseEmailString(envelope.from);
 				const message: IncomingMessage = {
-					mailboxEmail: data.to,
+					mailboxEmail: parseEmailString(data.to).email,
 					subject: data.subject,
 					text: data.text.trim(),
-					fromEmail: envelope.from,
+					fromName: from.name ?? undefined,
+					fromEmail: from.email,
 					dateSent: new Date(),
 				};
 

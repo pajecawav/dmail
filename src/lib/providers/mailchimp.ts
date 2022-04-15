@@ -1,6 +1,7 @@
 import { NextApiRequest } from "next";
 import { IncomingMessage, Provider } from "./provider";
 import crypto from "crypto";
+import { parseEmailString } from "../parse";
 
 // https://mailchimp.com/developer/transactional/docs/webhooks/#inbound-messages
 interface MailchimpInboundEvent {
@@ -54,7 +55,7 @@ export class MailchimpProvider implements Provider {
 		const messages: IncomingMessage[] = [];
 		for (const { msg, ts } of events) {
 			messages.push({
-				mailboxEmail: msg.to[0][0],
+				mailboxEmail: parseEmailString(msg.to[0][0]).email,
 				subject: msg.subject.trim(),
 				text: msg.text.trim(),
 				fromName: msg.from_name,
