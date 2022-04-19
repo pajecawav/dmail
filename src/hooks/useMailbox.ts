@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { MailboxResponse } from "@/pages/api/mailbox";
 import { useInterval } from "./useIntervalFn";
+import { isExtension } from "@/lib/extension";
 
 const TOKEN_KEY = "dmail.token";
 const REFRESH_INTERVAL_SECONDS = 10;
@@ -10,7 +11,10 @@ async function fetchMailbox(token?: string | null): Promise<MailboxResponse> {
 	if (token) {
 		headers.set("Authorization", `Bearer ${token}`);
 	}
-	const res = await fetch(`/api/mailbox`, { headers });
+	const url = isExtension
+		? "https://mail.elif.pw/api/mailbox"
+		: "/api/mailbox";
+	const res = await fetch(url, { headers });
 	const json = (await res.json()) as MailboxResponse;
 	return json;
 }

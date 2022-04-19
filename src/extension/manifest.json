@@ -1,0 +1,12 @@
+{
+	"name": "dmail",
+	"description": "Disposable Mail Address",
+	"homepage_url": "https://github.com/pajecawav/dmail",
+	"author": "pajecawav",
+	"version": "1.0.0",
+	"manifest_version": 2,
+	"browser_action": {
+		"default_popup": "./extension/popup.html"
+	},
+	"permissions": ["*://mail.elif.pw/*"]
+}

@@ -6,6 +6,9 @@ import {
 	TrashIcon,
 } from "@heroicons/react/outline";
 import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
 
 export default function HomePage() {
 	const { mailbox, refresh, isRefreshing, reset } = useMailbox();

@@ -54,3 +54,33 @@ docker run \
     ghcr.io/pajecawav/dmail
 
 ```
+
+## Development
+
+Start development server:
+
+```sh
+yarn dev
+```
+
+Navigate to http://localhost:3000
+
+## Web Extension
+
+Build extension:
+
+```sh
+yarn build-extension
+```
+
+Start extension (opens browser):
+
+```sh
+yarn start-extension
+```
+
+Bundle extension into a `zip` file:
+
+```sh
+yarn bundle-extension
+```
